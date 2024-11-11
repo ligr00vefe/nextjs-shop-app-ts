@@ -5,9 +5,7 @@ import priceFormat from '@/utils/priceFormat';
 import { formatTime } from '@/utils/dayjs';
 
 interface ICheckoutSuccessProps {
-    searchParams: {
-        orderId: Promise<{ orderId: string }>;
-    };
+    searchParams: Promise<{ orderId: string }>;
 }
 
 interface IPayment {
