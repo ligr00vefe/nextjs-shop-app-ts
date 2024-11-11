@@ -1,0 +1,72 @@
+@import '../../app/mixin.scss';
+.isEmpty {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100vh;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+
+    .users {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1.5rem 2rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+        font-weight: bold;
+        border-bottom: 1px solid #e5e7eb;
+        height: 70px;
+
+        .btnLogout {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 2rem 1rem 5rem;
+        overflow-x: scroll;
+
+        /* For Webkit browsers (Chrome, Safari) */
+        overflow: -moz-hidden-unscrollable; /* Firefox */
+        overflow: hidden; /* Hide scrollbar for all browsers */
+
+        /* For specific styling of scrollbars in Webkit browsers */
+        &::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+    }
+}
+
+.spinner {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+        color: #9ca3af;
+    }
+}
+
+.animateSpin {
+    @include animateSpin(1s, linear, infinite);
+}

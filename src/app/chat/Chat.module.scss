@@ -1,0 +1,91 @@
+@import '../../app/mixin.scss';
+
+.chatMain {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(8, 1fr);
+
+    .sidebar {
+        grid-column: span 2;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        grid-column: span 6;
+
+        .empty {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 1rem;
+
+            .icon {
+                width: 6rem;
+                height: 6rem;
+                color: #d1d5db;
+            }
+            p {
+                font-size: 1.5rem;
+                line-height: 2rem;
+                color: #d1d5db;
+            }
+        }
+
+        .messageArea {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            grid-column: span 6;
+
+            .messageBox {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                max-height: calc(100vh - 70px - 74px - 10px);
+                padding: 1rem 1.5rem 0;
+                margin-bottom: 0.5rem; /* 2px */
+
+                -ms-overflow-style: none; /* Internet Explorer 10+ */
+                scrollbar-width: none; /* Firefox */
+
+                /* For other browsers */
+                overflow: hidden;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .inner {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.spinner {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 3rem;
+        height: 3rem;
+        color: #9ca3af;
+    }
+}
+
+.animateSpin {
+    @include animateSpin(1s, linear, infinite);
+}

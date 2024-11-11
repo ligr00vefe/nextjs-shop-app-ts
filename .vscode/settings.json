@@ -1,0 +1,40 @@
+{
+  // Prettier 기본 설정
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // 파일 형식별 포매터 설정
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Prettier 상세 설정
+  "prettier.printWidth": 80, // 한 줄 최대 길이
+  "prettier.tabWidth": 4, // 들여쓰기 간격
+  "prettier.useTabs": false, // 탭 대신 스페이스 사용
+  "prettier.semi": true, // 세미콜론 사용
+  "prettier.singleQuote": true, // 작은따옴표 사용
+  "prettier.trailingComma": "es5", // 후행 쉼표 사용
+  "prettier.bracketSpacing": true, // 객체 리터럴의 괄호 사이 공백
+  "prettier.arrowParens": "always", // 화살표 함수 괄호 사용
+  "prettier.endOfLine": "auto",
+  // 저장 시 자동으로 불필요한 공백 제거
+  "files.trimTrailingWhitespace": true,
+
+  // 저장 시 파일 끝에 새 줄 추가
+  "files.insertFinalNewline": true,
+
+  // 특정 언어에 대해 탭 크기 설정
+  "[python]": {
+    "editor.tabSize": 4
+  }
+}
