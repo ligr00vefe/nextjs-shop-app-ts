@@ -4,7 +4,7 @@ import styles from './OrderHistory.module.scss';
 import useFetchCollection from '@/hooks/useFetchCollection';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserID } from '@/redux/slice/authSlice';
-import { STORE_ORDERS } from '@/redux/slice/orderSlice';
+import { selectOrderHistory, STORE_ORDERS } from '@/redux/slice/orderSlice';
 import Heading from '@/components/heading/Heading';
 import Loader from '@/components/loader/Loader';
 import priceFormat from '@/utils/priceFormat';
