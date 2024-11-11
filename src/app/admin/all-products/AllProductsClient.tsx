@@ -98,7 +98,7 @@ const AllProductsClient = () => {
             await deleteObject(storageRef);
             toast.success('상품을 성공적으로 삭제했습니다.');
         } catch (error) {
-            toast.error(getErrorMessage(error).message);
+            toast.error(getErrorMessage(error));
         }
     };
 
