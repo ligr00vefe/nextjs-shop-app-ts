@@ -18,7 +18,7 @@ import Pagination from '@/components/pagination/Pagination';
 import Search from '@/components/search/Search';
 
 // 임시 데이터
-import data from '../../../components/product/ProductsData.js';
+import data from '../../../components/product/ProductsData';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { db, storage } from '@/firebase/firebase';
