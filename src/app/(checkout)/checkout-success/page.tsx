@@ -4,10 +4,15 @@ import Heading from '@/components/heading/Heading';
 import priceFormat from '@/utils/priceFormat';
 import { formatTime } from '@/utils/dayjs';
 
+// interface ICheckoutSuccessProps {
+//     searchParams: {
+//         orderId: string;
+//     };
+// }
 interface ICheckoutSuccessProps {
-    searchParams: {
+    searchParams: Promise<{
         orderId: string;
-    };
+    }>; // Promise 형태로 수정
 }
 
 interface IPayment {
