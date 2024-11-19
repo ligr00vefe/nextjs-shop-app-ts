@@ -4,15 +4,10 @@ import Heading from '@/components/heading/Heading';
 import priceFormat from '@/utils/priceFormat';
 import { formatTime } from '@/utils/dayjs';
 
-// interface ICheckoutSuccessProps {
-//     searchParams: {
-//         orderId: string;
-//     };
-// }
 interface ICheckoutSuccessProps {
-    searchParams: Promise<{
-        orderId: string;
-    }>; // Promise 형태로 수정
+    searchParams: {
+        id: string;
+    };
 }
 
 interface IPayment {
@@ -27,9 +22,7 @@ interface IPayment {
 
 const CheckoutSuccess = async ({ searchParams }: ICheckoutSuccessProps) => {
     const secretKey = process.env.NEXT_PUBLIC_TOSS_SECRET_KEY || '';
-    // searchParams.orderId를 비동기적으로 가져오는 부분 수정
-    const { orderId } = searchParams;
-    const url = `https://api.tosspayments.com/v1/payments/orders/${orderId}`;
+    const url = `https://api.tosspayments.com/v1/payments/orders/${searchParams.id}`;
 
     const basicToken = Buffer.from(`${secretKey}:`, `utf-8`).toString('base64');
 
