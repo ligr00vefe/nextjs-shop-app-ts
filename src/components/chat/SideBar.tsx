@@ -10,6 +10,7 @@ import { CgSpinner } from 'react-icons/cg';
 import classNames from 'classnames';
 import { signOut } from 'firebase/auth';
 import UserListItem from './UserListItem';
+import { IChat } from '@/types';
 
 interface ISideBarProps {
     selectedChatId?: string;
@@ -71,7 +72,7 @@ const Sidebar = ({ selectedChatId }: ISideBarProps) => {
                     <UserListItem
                         sender={user}
                         receiver={receiver}
-                        chats={chats}
+                        chats={chats as IChat[]}
                         selectedChatId={selectedChatId}
                         key={receiver.email}
                     />
