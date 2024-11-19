@@ -99,7 +99,9 @@ const ProductList = ({ products }: IProductListProps) => {
                 <div className={styles.limit}>
                     <select
                         value={productsPerPage}
-                        onChange={(e) => setProductsPerPage(e.target.value)}
+                        onChange={(e) =>
+                            setProductsPerPage(Number(e.target.value))
+                        }
                     >
                         <option value={3}>3개씩 보기</option>
                         <option value={10}>10개씩 보기</option>
