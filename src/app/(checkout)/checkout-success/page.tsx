@@ -22,7 +22,13 @@ interface IPayment {
 
 const CheckoutSuccess = async ({ searchParams }: ICheckoutSuccessProps) => {
     const secretKey = process.env.NEXT_PUBLIC_TOSS_SECRET_KEY || '';
-    const url = `https://api.tosspayments.com/v1/payments/orders/${searchParams.orderId}`;
+    const orderId = searchParams.orderId;
+
+    if (!orderId) {
+        throw new Error('Order ID is missing');
+    }
+
+    const url = `https://api.tosspayments.com/v1/payments/orders/${orderId}`;
 
     const basicToken = Buffer.from(`${secretKey}:`, `utf-8`).toString('base64');
 
