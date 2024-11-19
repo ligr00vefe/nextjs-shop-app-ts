@@ -43,6 +43,8 @@ const ResetClient = () => {
                         />
                         <form onSubmit={resetPassword}>
                             <Input
+                                id="email"
+                                label="이메일"
                                 type="text"
                                 placeholder="Email"
                                 required
