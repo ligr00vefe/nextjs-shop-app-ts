@@ -6,7 +6,7 @@ import { formatTime } from '@/utils/dayjs';
 
 interface ICheckoutSuccessProps {
     searchParams: {
-        orderId: any;
+        orderId: string;
     };
 }
 

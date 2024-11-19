@@ -124,7 +124,7 @@ const AddProductClient = () => {
                         onChange={(e) => handleInputChange(e)}
                     />
 
-                    <lable>상품 이미지:</lable>
+                    <label>상품 이미지:</label>
                     <div className={styles.group}>
                         {uploadProgress === 0 ? null : (
                             <div className={styles.progress}>

@@ -16,20 +16,20 @@ import Image from 'next/image';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import Pagination from '@/components/pagination/Pagination';
 import Search from '@/components/search/Search';
-
-// 임시 데이터
-import data from '../../../components/product/ProductsData';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { db, storage } from '@/firebase/firebase';
 import { deleteObject, ref } from 'firebase/storage';
 import Notiflix from 'notiflix';
 
+// 임시 데이터
+// import data from '../../../components/product/ProductsData';
+
 const AllProductsClient = () => {
     const [search, setSearch] = useState('');
-    // using customHook
-    // const { data, isLoading } = useFetchCollection("products");
-    const [isLoading, setIsLoading] = useState(false);
+    const { data, isLoading } = useFetchCollection('products');
+    // 임시 데이터용 isLoading값
+    // const [isLoading, setIsLoading] = useState(false);
 
     const products = useSelector(selectProducts);
     const filteredProducts = useSelector(selectFilteredProducts);
@@ -54,7 +54,7 @@ const AllProductsClient = () => {
                 products: data,
             })
         );
-    }, [dispatch /*, data */]);
+    }, [dispatch, data]);
 
     // filtering product in store
     useEffect(() => {

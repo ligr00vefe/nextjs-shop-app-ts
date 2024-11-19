@@ -17,20 +17,27 @@ import ProductReviewItem from '@/components/product/productReview/ProductReviewI
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from '@/redux/slice/cartSlice';
 import { useDispatch } from 'react-redux';
 
-import products from '../../../components/product/ProductsData';
-import reviews from '../../../components/product/ProductReviewsData';
+// import products from '../../../components/product/ProductsData';
+// import reviews from '../../../components/product/ProductReviewsData';
 
 const ProductDetailsClient = () => {
     const { id } = useParams();
 
     // 테스트용 더미데이터
-    const product = products.find((product) => product.id === id);
+    // const product = products.find((product) => product.id === id);
 
     // 실제 코드
-    // const { document: product } = useFetchDocument('products', id);
+    const { document: product } = useFetchDocument(
+        'products',
+        Array.isArray(id) ? id[0] : id || ''
+    );
 
     // review 데이터 불러오기
-    // const { documents: reviews } = useFetchDocuments('reviews', ['productID', '==', id]);
+    const { documents: reviews } = useFetchDocuments('reviews', [
+        'productID',
+        '==',
+        Array.isArray(id) ? id[0] : id || '',
+    ]);
 
     const dispatch = useDispatch();
 

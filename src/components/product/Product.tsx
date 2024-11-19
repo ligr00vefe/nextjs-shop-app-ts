@@ -13,15 +13,16 @@ import ProductList from './productList/ProductList';
 import ProductFilter from './productFilter/ProductFilter';
 
 // 임시 데이터
-import productsData from './ProductsData';
-import productReviewsData from './ProductReviewsData';
+// import productsData from './ProductsData';
+// import productReviewsData from './ProductReviewsData';
 
 const Product = () => {
-    // const { data, isLoading } = useFetchCollection('products');
-
+    const { data, isLoading } = useFetchCollection('products');
     // console.log('data: ', data);
     // console.log('productsData: ', productsData);
-    const [isLoading, setIsLoading] = useState(false);
+
+    // 임시 데이터용 isLoading값
+    // const [isLoading, setIsLoading] = useState(false);
 
     // 불러온 데이터를 redux store에 저장
     const dispatch = useDispatch();
@@ -29,16 +30,16 @@ const Product = () => {
     useEffect(() => {
         dispatch(
             STORE_PRODUCTS({
-                products: productsData,
+                products: data,
             })
         );
 
         dispatch(
             GET_PRICE_RANGE({
-                products: productsData,
+                products: data,
             })
         );
-    }, [/*data, */ dispatch]);
+    }, [data, dispatch]);
 
     // redux store에서 component로 가져오기
     const products = useSelector(selectProducts);

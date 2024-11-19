@@ -27,7 +27,7 @@ const EditProductClient = () => {
 
     const { document } = useFetchDocument(
         'products',
-        Array.isArray(id) ? id[0] : id!
+        Array.isArray(id) ? id[0] : id || ''
     );
     const [product, setProduct] = useState(document);
 
@@ -78,7 +78,7 @@ const EditProductClient = () => {
         if (!product || !document) return;
 
         // id가 string | string[]인 경우 처리
-        const productId = Array.isArray(id) ? id[0] : id; // id가 배열일 경우 첫 번째 요소를 사용합니다.
+        const productId = Array.isArray(id) ? id[0] : id; // id가 배열일 경우 첫 번째 요소를 사용.
 
         if (!productId) {
             setIsLoading(false);

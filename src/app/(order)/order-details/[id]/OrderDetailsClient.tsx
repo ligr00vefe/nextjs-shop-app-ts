@@ -15,7 +15,7 @@ const OrderDetailsClient = () => {
     const { id } = useParams();
     const { document: order } = useFetchDocument(
         'orders',
-        Array.isArray(id) ? id[0] : id!
+        Array.isArray(id) ? id[0] : id || ''
     );
 
     const router = useRouter();
