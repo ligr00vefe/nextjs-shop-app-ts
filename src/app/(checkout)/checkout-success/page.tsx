@@ -5,9 +5,7 @@ import priceFormat from '@/utils/priceFormat';
 import { formatTime } from '@/utils/dayjs';
 
 interface ICheckoutSuccessProps {
-    searchParams: {
-        orderId: string;
-    };
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 interface IPayment {
@@ -22,16 +20,8 @@ interface IPayment {
 
 const CheckoutSuccess = async ({ searchParams }: ICheckoutSuccessProps) => {
     const secretKey = process.env.NEXT_PUBLIC_TOSS_SECRET_KEY || '';
-    // const orderId = searchParams.orderId;
-
-    // if (!orderId) {
-    //     throw new Error('Order ID is missing');
-    // }
-    if (!searchParams?.orderId || typeof searchParams.orderId !== 'string') {
-        throw new Error('Invalid or missing orderId');
-    }
-
-    const url = `https://api.tosspayments.com/v1/payments/orders/${searchParams.orderId}`;
+    const orderId = await searchParams;
+    const url = `https://api.tosspayments.com/v1/payments/orders/${orderId}`;
 
     const basicToken = Buffer.from(`${secretKey}:`, `utf-8`).toString('base64');
 
