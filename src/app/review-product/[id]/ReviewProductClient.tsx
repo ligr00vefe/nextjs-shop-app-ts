@@ -13,6 +13,7 @@ import Button from '@/components/button/Button';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '@/firebase/firebase';
 import { toast } from 'react-toastify';
+import useFetchDocument from '@/hooks/useFetchDocument';
 
 const ReviewProductClient = () => {
     const [rate, setRate] = useState(0);
@@ -25,7 +26,7 @@ const ReviewProductClient = () => {
     const userName = useSelector(selectUserName);
 
     // getting a single produc tfrom database
-    const { document: product } = useFetchCollection('products', id);
+    const { document: product } = useFetchDocument('products', id as string);
 
     const submitReview = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
