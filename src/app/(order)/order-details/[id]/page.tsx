@@ -1,19 +1,9 @@
 import React from 'react';
 import OrderDetailsClient from './OrderDetailsClient';
 
-interface IOrderDetailsProps {
-    params: {
-        id: string;
-    };
-}
-
-const OrderDetails = ({ params }: IOrderDetailsProps) => {
-    const { id } = params;
-    // console.log('id: ', id);
-
+const OrderDetails = () => {
     return (
         <>
-            {/* <div>{id}</div> */}
             <OrderDetailsClient />
         </>
     );
