@@ -10,10 +10,18 @@ interface IMessageBubbleProps {
     user: User;
     message: IMessage;
     photoURL: string;
+    numberOfMessages: number;
+    currentMessageIndex: number;
 }
 
-const MessageBubble = ({ user, message, photoURL }: IMessageBubbleProps) => {
-    const sender = message.sender === user.email;
+const MessageBubble = ({
+    user,
+    message,
+    photoURL,
+    numberOfMessages,
+    currentMessageIndex,
+}: IMessageBubbleProps) => {
+    const sender = message.sender === user?.email;
 
     return (
         <div className={styles.msgBubble}>
@@ -39,6 +47,16 @@ const MessageBubble = ({ user, message, photoURL }: IMessageBubbleProps) => {
                     {message.text}
                 </div>
             </div>
+            {/* {numberOfMessages === currentMessageIndex + 1 && (
+                <div className={!sender ? `flex justify-start` : `flex justify-end`}>
+                <span className="px-1 text-xs text-gray-400">
+                    Sent{" "}
+                    {Moment(new Date(message?.timestamp?.seconds * 1000)).format(
+                    "MMM DD, YYYY h:mm a"
+                    )}
+                </span>
+                </div>
+            )} */}
         </div>
     );
 };
